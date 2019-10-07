@@ -1,0 +1,140 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> s ='India,US,UK,China'
+>>> l = s.split(',')
+>>> l
+['India', 'US', 'UK', 'China']
+>>> # lists as sequences
+>>> len(l)
+4
+>>> l[0]
+'India'
+>>> l[5]
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    l[5]
+IndexError: list index out of range
+>>> li = l
+>>> li[-1]
+'China'
+>>> li[-10]
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    li[-10]
+IndexError: list index out of range
+>>> li[2:]
+['UK', 'China']
+>>> li[::-1]
+['China', 'UK', 'US', 'India']
+>>> s
+'India,US,UK,China'
+>>> # strings are immutable
+>>> s = 'Hello world'
+>>> s[0]='D'
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    s[0]='D'
+TypeError: 'str' object does not support item assignment
+>>> id(s)
+2899195893040
+>>> s
+'Hello world'
+>>> s.upper()
+'HELLO WORLD'
+>>> s
+'Hello world'
+>>> s = s.upper()
+>>> s
+'HELLO WORLD'
+>>> id(s)
+2899195486384
+>>> help(len)
+Help on built-in function len in module builtins:
+
+len(obj, /)
+    Return the number of items in a container.
+
+>>> help(id)
+Help on built-in function id in module builtins:
+
+id(obj, /)
+    Return the identity of an object.
+    
+    This is guaranteed to be unique among simultaneously existing objects.
+    (CPython uses the object's memory address.)
+
+>>> # lists are mutable
+>>> li
+['India', 'US', 'UK', 'China']
+>>> li[-2]='Cuba'
+>>> li
+['India', 'US', 'Cuba', 'China']
+>>> id(li)
+2899190749576
+>>> li[1]='US of America'
+>>> li
+['India', 'US of America', 'Cuba', 'China']
+>>> id(li)
+2899190749576
+>>> li.append('Canada')
+>>> li
+['India', 'US of America', 'Cuba', 'China', 'Canada']
+>>> id(li)
+2899190749576
+>>> b = ['Buthan','Thailand', 'Japan']
+>>> li
+['India', 'US of America', 'Cuba', 'China', 'Canada']
+>>> b
+['Buthan', 'Thailand', 'Japan']
+>>> li.extend(b)
+>>> li
+['India', 'US of America', 'Cuba', 'China', 'Canada', 'Buthan', 'Thailand', 'Japan']
+>>> len(li)
+8
+>>> li.insert(2,'Mexico')
+>>> li
+['India', 'US of America', 'Mexico', 'Cuba', 'China', 'Canada', 'Buthan', 'Thailand', 'Japan']
+>>> li.insert(-1, 'UK')
+>>> li
+['India', 'US of America', 'Mexico', 'Cuba', 'China', 'Canada', 'Buthan', 'Thailand', 'UK', 'Japan']
+>>> 
+>>> 
+>>> 
+>>> li = ['India', 'US', 'UK', 'China']
+>>> b
+['Buthan', 'Thailand', 'Japan']
+>>> len(li)
+4
+>>> li.append(b)
+>>> len(li)
+5
+>>> li
+['India', 'US', 'UK', 'China', ['Buthan', 'Thailand', 'Japan']]
+>>> li[5]
+Traceback (most recent call last):
+  File "<pyshell#55>", line 1, in <module>
+    li[5]
+IndexError: list index out of range
+>>> li[4]
+['Buthan', 'Thailand', 'Japan']
+>>> li[4][-1]
+'Japan'
+>>> li[-1][-1]
+'Japan'
+>>> ip='123.45.34.23'
+>>> li = ip.split('.')
+>>> li
+['123', '45', '34', '23']
+>>> li[-1] + 1
+Traceback (most recent call last):
+  File "<pyshell#62>", line 1, in <module>
+    li[-1] + 1
+TypeError: can only concatenate str (not "int") to str
+>>> int(li[-1]) + 1
+24
+>>> li[-1] = str(int(li[-1]) + 1)
+>>> li
+['123', '45', '34', '24']
+>>> ".".join(li)
+'123.45.34.24'
+>>> 
