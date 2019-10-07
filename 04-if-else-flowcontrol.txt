@@ -1,3 +1,119 @@
 Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license()" for more information.
 >>> 
+
+>>> a = 10
+>>> if a < 10:
+	print("Single digit")
+
+	
+>>> if a < 10:
+	print("Single digit")
+else:
+	print("may be double digit")
+
+	
+may be double digit
+>>> if a < 10:
+	print("Single digit")
+elif a < 100:
+	print(" double digit")
+else:
+	print("2+ digits")
+
+	
+ double digit
+>>> a =50
+>>> if a < 10:
+	print("Single digit")
+elif a < 100:
+	print(" double digit")
+else:
+	print("2+ digits")
+
+	
+ double digit
+>>> x = 3
+>>> y = 10
+>>> a < 100
+True
+>>> x != 3
+False
+>>> x > 2 and x < 10
+True
+>>> x > 2 or x < 10
+True
+>>> x > 2 and x < 10
+True
+>>> 2 < x < 10
+True
+>>> 2 < x < y < 20
+True
+>>> not 2 < x < y < 20
+False
+>>> li = ['India', 'US','UK']
+>>> 'US' in li
+True
+>>> 'gle' in 'google.com'
+True
+>>> 
+>>> 
+>>> li
+['India', 'US', 'UK']
+>>> count = 0
+>>> while count < len(li):
+	print(li[count])
+	count += 1
+
+	
+India
+US
+UK
+>>> while count < len(li):
+	print(li[count])
+	count += 1
+
+	
+>>> count
+3
+>>> count = 0
+>>> while count < len(li):
+	print(li[count])
+	count += 1
+
+	
+India
+US
+UK
+>>> li
+['India', 'US', 'UK']
+>>> for country in li"
+SyntaxError: EOL while scanning string literal
+>>> for country in li:
+	print(country)
+
+	
+India
+US
+UK
+>>> for country in li:
+	print(country)
+
+	
+India
+US
+UK
+>>> import random
+>>> random.randint(0,100)
+45
+>>> random.randint(0,100)
+45
+>>> random.randint(0,100)
+73
+>>> 30 # low
+30
+>>> 80 # high
+80
+>>> 50 # low
+50
+>>> 
