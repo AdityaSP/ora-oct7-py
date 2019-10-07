@@ -1,0 +1,124 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a = 'Hello'
+>>> a + ' Again'
+'Hello Again'
+>>> a
+'Hello'
+>>> s = a + ' Again'
+>>> s
+'Hello Again'
+>>> a = 5
+>>> s + a
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    s + a
+TypeError: can only concatenate str (not "int") to str
+>>> s + str(a)
+'Hello Again5'
+>>> 
+>>> s
+'Hello Again'
+>>> a = 'H'
+>>> type(a)
+<class 'str'>
+>>> # Treating strings as sequences
+>>> len(s)
+11
+>>> s
+'Hello Again'
+>>> s[0]
+'H'
+>>> s[1]
+'e'
+>>> s[10]
+'n'
+>>> s[11]
+Traceback (most recent call last):
+  File "<pyshell#18>", line 1, in <module>
+    s[11]
+IndexError: string index out of range
+>>> s[-1]
+'n'
+>>> s[-2]
+'i'
+>>> s[-11]
+'H'
+>>> s[-12]
+Traceback (most recent call last):
+  File "<pyshell#22>", line 1, in <module>
+    s[-12]
+IndexError: string index out of range
+>>> s
+'Hello Again'
+>>> #slicing
+>>> s[0:5]
+'Hello'
+>>> s[6:10]
+'Agai'
+>>> s[6:11]
+'Again'
+>>> s[6:100]
+'Again'
+>>> s[0:100:1]
+'Hello Again'
+>>> s[0:100:2]
+'HloAan'
+>>> #s[<start(inclusive)>:<end(exclusive)>:<stepper>]
+>>> s
+'Hello Again'
+>>> s[-1:-5]
+''
+>>> s[2:-1]
+'llo Agai'
+>>> s[6:-9]
+''
+>>> s[-5:10]
+'Agai'
+>>> s[-5:-1]
+'Agai'
+>>> s[-1:-8]
+''
+>>> s
+'Hello Again'
+>>> s[-1:-5]
+''
+>>> s[-1:-5:1]
+''
+>>> s[-1:-5:-1]
+'niag'
+>>> s
+'Hello Again'
+>>> len(s)
+11
+>>> s[-1:-11:-1]
+'niagA olle'
+>>> s[-1:-12:-1]
+'niagA olleH'
+>>> s[-1:-len(s)-1:-1]
+'niagA olleH'
+>>> s='hello world and hello again'
+>>> s[-1:-len(s)-1:-1]
+'niaga olleh dna dlrow olleh'
+>>> 
+>>> 
+>>> # syntactic sugars
+>>> s[5:100]
+' world and hello again'
+>>> s[5:]
+' world and hello again'
+>>> s[0:5]
+'hello'
+>>> s[:5]
+'hello'
+>>> s[:]
+'hello world and hello again'
+>>> s[::1]
+'hello world and hello again'
+>>> s[::]
+'hello world and hello again'
+>>> s[::-1]
+'niaga olleh dna dlrow olleh'
+>>> s[-1:-len(s)-1:-1]
+'niaga olleh dna dlrow olleh'
+>>> 
