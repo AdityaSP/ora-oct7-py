@@ -138,3 +138,31 @@ TypeError: can only concatenate str (not "int") to str
 >>> ".".join(li)
 '123.45.34.24'
 >>> 
+>>> 
+>>> 
+>>> 
+>>> li
+['123', '45', '34', '24']
+>>> li = ['India', 'US of America', 'Mexico', 'Cuba', 'China', 'Canada', 'Buthan', 'Thailand', 'UK', 'Japan']
+>>> li.remove('UK')
+>>> li
+['India', 'US of America', 'Mexico', 'Cuba', 'China', 'Canada', 'Buthan', 'Thailand', 'Japan']
+>>> a = 10
+>>> del a
+>>> a
+Traceback (most recent call last):
+  File "<pyshell#77>", line 1, in <module>
+    a
+NameError: name 'a' is not defined
+>>> del li[3]
+>>> li
+['India', 'US of America', 'Mexico', 'China', 'Canada', 'Buthan', 'Thailand', 'Japan']
+>>> li.pop()
+'Japan'
+>>> li
+['India', 'US of America', 'Mexico', 'China', 'Canada', 'Buthan', 'Thailand']
+>>> li.pop(5)
+'Buthan'
+>>> li
+['India', 'US of America', 'Mexico', 'China', 'Canada', 'Thailand']
+>>> 
