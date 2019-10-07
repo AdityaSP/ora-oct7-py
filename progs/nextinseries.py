@@ -1,0 +1,5 @@
+ui = input("Enter an ip address: ")
+ip = ui.split('.')
+ip[-1] = str(int(ip[-1]) + 1)
+print("Next IP: " , ".".join(ip))
+print(b)
