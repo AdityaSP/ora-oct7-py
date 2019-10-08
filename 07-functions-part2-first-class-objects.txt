@@ -319,3 +319,76 @@ AttributeError: 'tuple' object has no attribute 'split'
 >>> bill(50,60)(.2)
 132.0
 >>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> def sayhi():
+	print("Hi")
+
+	
+>>> sayhi()
+Hi
+>>> def deco(f):
+	def wrapper():
+		print("*" * 50)
+		f()
+		print("*" * 50)
+	return wrapper
+
+>>> x = deco(sayhi)
+>>> x()
+**************************************************
+Hi
+**************************************************
+>>> deco(sayhi)()
+**************************************************
+Hi
+**************************************************
+>>> @deco
+def sayhi():
+	print("Hi")
+
+	
+>>> sayhi()
+**************************************************
+Hi
+**************************************************
+>>> 
+>>> 
+>>> 
+>>> 
+>>> import random
+>>> import time
+>>> time.time()
+1570574292.4327333
+>>> time.time()
+1570574316.2339914
+>>> 
+>>> 
+>>> def heavyduty():
+	time.sleep(random.randint(1,4))
+
+	
+>>> heavyduty()
+>>> heavyduty()
+>>> def timer(f):
+	def wrapper():
+		s = time.time()
+		f()
+		e = time.time()
+		print("Took:", e-s, "secs")
+	return wrapper
+
+>>> @timer
+def heavyduty():
+	time.sleep(random.randint(1,4))
+
+	
+>>> heavyduty()
+Took: 1.0004210472106934 secs
+>>> heavyduty()
+Took: 3.000246524810791 secs
+>>> heavyduty()
+Took: 2.0007407665252686 secs
+>>> 
