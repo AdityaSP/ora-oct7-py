@@ -1,0 +1,77 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> # functions as first class objects/constructs
+>>> # functional style of programming
+>>> a = 10
+>>> def sayhi():
+	return "Hi"
+
+>>> id(a)
+140704057422368
+>>> id(sayhi)
+2118080439640
+>>> type(a)
+<class 'int'>
+>>> type(sayhi)
+<class 'function'>
+>>> b = a
+>>> id(b)
+140704057422368
+>>> b
+10
+>>> greet = sayhi
+>>> id(greet)
+2118080439640
+>>> type(greet)
+<class 'function'>
+>>> sayhi()
+'Hi'
+>>> greet()
+'Hi'
+>>> 
+>>> 
+>>> 
+>>> def execother(obj):
+	print(type(obj))
+
+	
+>>> execother(a)
+<class 'int'>
+>>> execother(sayhi)
+<class 'function'>
+>>> execother(sayhi())
+<class 'str'>
+>>> 
+>>> 
+>>> def execother(obj):
+	print("Greetings->", obj())
+
+	
+>>> execother(sayhi)
+Greetings-> Hi
+>>> # execother(sayhi) ---> passing a function "sayhi" to another function "execother"
+>>> # sayhi -> first order function -> takes in regular args and gives back reg objs
+>>> 
+>>> # execother -->  higher order function --> either / both takes in a function or returns a function
+>>> 
+>>> # using higer order functions it is possible to inject behaviour
+>>> 
+>>> 
+>>> 
+>>> def calc(f, x, y):
+	return f(x,y)
+
+>>> 
+>>> # is calc a higher order function? --> yes
+>>> def add(m,n):
+	return m +n
+
+>>> 
+>>> calc(add, 5,6)
+11
+>>> def sumofsq(m,n):
+	return m**2 + n**2
+
+>>> calc(sumofsq, 5,6)
+61
+>>> 
