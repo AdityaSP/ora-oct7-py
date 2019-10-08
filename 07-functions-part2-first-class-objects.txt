@@ -255,3 +255,67 @@ AttributeError: 'tuple' object has no attribute 'split'
 >>> [ age * 12 for age in ages if 20 < age < 60]
 [276, 672, 408]
 >>> 
+>>> 
+>>> 
+>>> s = 'chrome.exe                   28920 Console                    1    191,152 K'
+>>> 
+>>> 
+>>> s.split()
+['chrome.exe', '28920', 'Console', '1', '191,152', 'K']
+>>> s.split(' ')
+['chrome.exe', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '28920', 'Console', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '191,152', 'K']
+>>> s.split()[1]
+'28920'
+>>> 
+>>> 
+>>> def sayhi():
+	def greet():
+		return "Hi there!"
+	return greet
+
+>>> x = sayhi()
+>>> x
+<function sayhi.<locals>.greet at 0x000001ED27751048>
+>>> type(x)
+<class 'function'>
+>>> x()
+'Hi there!'
+>>> def sayhi(name):
+	def greet():
+		return "Hi " + name
+	return greet
+
+>>> 
+>>> x = sayhi("Bill")
+>>> y = sayhi("Henry")
+>>> # x and y are both functions
+>>> x()
+'Hi Bill'
+>>> y()
+'Hi Henry'
+>>> # closures
+>>> def bill(i1, i2, tax):
+	total = i1 + i2
+	grandtotal = total + total * tax
+	return grandtotal
+
+>>> 
+>>> bill(100,200,.1)
+330.0
+>>> def bill(i1 ,i2):
+	total = i1 + i2
+	def withtax(tax):
+		return total + total * tax
+	return withtax
+
+>>> x = bill(100,200)
+>>> 
+>>> x(.1)
+330.0
+>>> x(.2)
+360.0
+>>> # higher order function, closure, partial functions
+>>> 
+>>> bill(50,60)(.2)
+132.0
+>>> 
