@@ -1,0 +1,111 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> def sayhi():
+	print("Hi")
+
+	
+>>> sayhi()
+Hi
+>>> x = sayhi()
+Hi
+>>> x
+>>> x = len("hello")
+>>> x
+5
+>>> def sayhi():
+	print("Hi")
+	return "Hi"
+
+>>> x = sayhi()
+Hi
+>>> x
+'Hi'
+>>> def sayhi():
+	print("Hi")
+	return "Hello"
+
+>>> sayhi()
+Hi
+'Hello'
+>>> x = sayhi()
+Hi
+>>> x
+'Hello'
+>>> def sayhi():
+	return "Hello"
+
+>>> x= sayhi()
+>>> x
+'Hello'
+>>> #pure functions
+>>> # unit tested
+>>> def sayhi(name):
+	return "Hello" + name
+
+>>> x = sayhi('Aditya')
+>>> x
+'HelloAditya'
+>>> # function maps an input value to an output value and nothing else
+>>> s = 'hello;
+SyntaxError: EOL while scanning string literal
+>>> s = 'hello'
+>>> s.upper()
+'HELLO'
+>>> x = s.upper()
+>>> x
+'HELLO'
+>>> s
+'hello'
+>>> li = [1,2,3]
+>>> li.append(4)
+>>> li
+[1, 2, 3, 4]
+>>> x = li.append(4)
+>>> x
+>>> li
+[1, 2, 3, 4, 4]
+>>> li
+[1, 2, 3, 4, 4]
+>>> x = li.pop()
+>>> li
+[1, 2, 3, 4]
+>>> x
+4
+>>> s
+'hello'
+>>> s.upper().split().append(4).pop()
+
+Traceback (most recent call last):
+  File "<pyshell#47>", line 1, in <module>
+    s.upper().split().append(4).pop()
+AttributeError: 'NoneType' object has no attribute 'pop'
+>>> x = s.upper().split()
+>>> x.append(4)
+>>> x
+['HELLO', 4]
+>>> x.pop()
+4
+>>> 
+>>> 
+>>> 
+>>> def sayhi(name):
+	return "Hello" + name
+
+>>> def full_name(fn, ln):
+	return fn.capitalize() + " " + ln.capitalize()
+
+>>> full_name('John','Doe')
+'John Doe'
+>>> full_name('john','doe')
+'John Doe'
+>>> full_name('Doe', 'john')
+'Doe John'
+>>> # positional arguements (above style of calling)
+>>> 
+>>> # key word arguments
+>>> 
+>>> full_name(fn ='John', ln='Doe')
+'John Doe'
+>>> full_name(ln='Doe', fn ='John')
+'John Doe'
+>>> 
