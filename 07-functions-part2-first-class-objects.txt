@@ -232,3 +232,26 @@ AttributeError: 'tuple' object has no attribute 'split'
 >>> 
 >>> 
 >>> 
+
+>>> 
+>>> # comprehensions of Python
+>>> kms = [5,10,21,42]
+>>> mi = []
+>>> for km in kms:
+	mi.append(km * 0.62)
+
+	
+>>> #[ <expr> <for statement>]
+>>> mi
+[3.1, 6.2, 13.02, 26.04]
+>>> mi = [ km * 0.62 for km in kms]
+>>> mi
+[3.1, 6.2, 13.02, 26.04]
+>>> ages = [8,23,12,56,34,78]
+>>> list(map(lambda x : x * 12, filter(lambda x : 20 < x < 60, ages)))
+[276, 672, 408]
+>>> #[ <expr> <for statement> <if gates>]
+>>> 
+>>> [ age * 12 for age in ages if 20 < age < 60]
+[276, 672, 408]
+>>> 
