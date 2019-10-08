@@ -159,4 +159,76 @@ Traceback (most recent call last):
 AttributeError: 'tuple' object has no attribute 'split'
 >>> sorted(zip(fn,ln), key=lambda x : x[-1])
 [('Roger', 'Federer'), ('Bill', 'Gates'), ('Steve', 'Jobs')]
+>>> li = [34,23,56,34,67]
+>>> sum(li)
+214
+>>> max(li)
+67
+>>> min(li)
+23
+>>> li = [[12,34,56],[67,456,78], [56,32,56]]
+>>> sorted(li)
+[[12, 34, 56], [56, 32, 56], [67, 456, 78]]
+>>> sorted(li, key=sum)
+[[12, 34, 56], [56, 32, 56], [67, 456, 78]]
+>>> sorted(li, key=max)
+[[12, 34, 56], [56, 32, 56], [67, 456, 78]]
+>>> sorted(li, key=min)
+[[12, 34, 56], [56, 32, 56], [67, 456, 78]]
+>>> 
+>>> 
+>>> 
+>>> 
+>>> kms = [5,10,21,42]
+>>> def tomi(x):
+	return x * 0.6
+
+>>> mi = []
+>>> for km in kms:
+	mi.append(tomi(km))
+
+	
+>>> mi
+[3.0, 6.0, 12.6, 25.2]
+>>> map(tomi, kms)
+<map object at 0x000001ED277245C8>
+>>> m = map(tomi, kms)
+>>> # m is the mapobject and it is an iterator
+>>> 
+>>> # iterators and sequences
+>>> # we can loop through both iterators and sequences. in sequences the items are all realized but in an iterator the items are not yet realized
+>>> for item in m:
+	print(item)
+
+	
+3.0
+6.0
+12.6
+25.2
+>>> list(map(tomi, kms))
+[3.0, 6.0, 12.6, 25.2]
+>>> tuple(map(tomi, kms))
+(3.0, 6.0, 12.6, 25.2)
+>>> list(map(lambda x : x * 0.62, kms))
+[3.1, 6.2, 13.02, 26.04]
+>>> type(m)
+<class 'map'>
+>>> 
+>>> 
+>>> ages = [8,23,12,56,34,78]
+>>> sel = []
+>>> for age in ages:
+	if 20 < age < 60:
+		sel.append(age)
+
+		
+>>> sel
+[23, 56, 34]
+>>> filter(lambda x : 20 < x < 60, ages)
+<filter object at 0x000001ED2771EEC8>
+>>> list(filter(lambda x : 20 < x < 60, ages))
+[23, 56, 34]
+>>> 
+>>> 
+>>> 
 >>> 
