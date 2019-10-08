@@ -109,3 +109,56 @@ AttributeError: 'NoneType' object has no attribute 'pop'
 >>> full_name(ln='Doe', fn ='John')
 'John Doe'
 >>> 
+>>> 
+>>> def full_name(fn, ln, title):
+	return title.upper() + "." + fn.capitalize() + " " + ln.capitalize()
+
+>>> full_name(ln='Doe', fn ='John')
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    full_name(ln='Doe', fn ='John')
+TypeError: full_name() missing 1 required positional argument: 'title'
+>>> def full_name(fn, ln, title='mr'):
+	return title.upper() + "." + fn.capitalize() + " " + ln.capitalize()
+
+>>> full_name(ln='Doe', fn ='John')
+'MR.John Doe'
+>>> full_name(ln='Doe', fn ='John', title='Dr')
+'DR.John Doe'
+>>> # No function overloading
+>>> li = [45,123,67,34,78]
+>>> sorted(li)
+[34, 45, 67, 78, 123]
+>>> li
+[45, 123, 67, 34, 78]
+>>> sorted(li, reverse=True)
+[123, 78, 67, 45, 34]
+>>> '''#functions -> pure functions
+len
+id
+type
+int
+str
+input
+# methods
+s = "hello"
+s.upper()  --> pure method
+s.lower() --> pure method
+s.split() --> pure method
+
+b = [3,4,5]
+li = [1,2,3]
+li.append(4)  --> pure side effect
+li.extend()  --> pure side effect
+li.insert()  --> pure side effect
+
+# below would result in an error
+
+s.upper().split().append(4).pop()
+s1 = s.upper()
+s2 = s1.split()
+s3 = s2.append(4)
+s3.pop()
+'''
+'#functions -> pure functions\nlen\nid\ntype\nint\nstr\ninput\n# methods\ns = "hello"\ns.upper()  --> pure method\ns.lower() --> pure method\ns.split() --> pure method\n\nb = [3,4,5]\nli = [1,2,3]\nli.append(4)  --> pure side effect\nli.extend()  --> pure side effect\nli.insert()  --> pure side effect\n\n# below would result in an error\n\ns.upper().split().append(4).pop()\ns1 = s.upper()\ns2 = s1.split()\ns3 = s2.append(4)\ns3.pop()\n'
+>>> 
