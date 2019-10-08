@@ -75,3 +75,88 @@ Greetings-> Hi
 >>> calc(sumofsq, 5,6)
 61
 >>> 
+def sumofsq(m,n):
+	return m**2 + n**2.
+
+>>> calc(sumofsq, 5,6)
+61.0
+>>> 
+>>> 
+>>> 
+>>> 
+>>> li = ['new york', 'New Jersey','boston', 'Florida']
+>>> sorted(li)
+['Florida', 'New Jersey', 'boston', 'new york']
+>>> def toupper(x):
+	return x.upper()
+
+>>> sorted(li, key=toupper)
+['boston', 'Florida', 'New Jersey', 'new york']
+>>> sorted(li, key=toupper, reverse=True)
+['new york', 'New Jersey', 'Florida', 'boston']
+>>> li = ['ww','ggg','bbbb','z']
+>>> sorted(li)
+['bbbb', 'ggg', 'ww', 'z']
+>>> def get_len(x):
+	return len(x)
+
+>>> sorted(li, key=get_len)
+['z', 'ww', 'ggg', 'bbbb']
+>>> sorted(li, key=len)
+['z', 'ww', 'ggg', 'bbbb']
+>>> 
+>>> 
+>>> 
+>>> 10
+10
+>>> "Hello"
+'Hello'
+>>> # literal -> 10 is an int literal, "Hello" is a string literal"
+>>> def add(m,n):
+	return m +n
+
+>>> lambda m,n : m + n
+<function <lambda> at 0x000001ED2771D708>
+>>> x = lambda m,n : m + n
+>>> type(x)
+<class 'function'>
+>>> x(4,5)
+9
+>>> x = 50
+>>> y = 60
+>>> add(x,y)
+110
+>>> add(50,60)
+110
+>>> li = ['new york', 'New Jersey','boston', 'Florida']
+>>> sorted(li, key=lambda x:x.upper())
+['boston', 'Florida', 'New Jersey', 'new york']
+>>> calc(sumofsq, 5,6)
+61.0
+>>> calc(lambda x,y: x-y , 5,6)
+-1
+>>> calc(lambda x,y: x*y , 5,6)
+30
+>>> li = ['Bill Gates', 'Steve Jobs', 'Roger Federer']
+>>> 
+>>> 
+>>> sorted(li, key=lambda x : x.split()[-1])
+['Roger Federer', 'Bill Gates', 'Steve Jobs']
+>>> 'Roger Federer'.split()
+['Roger', 'Federer']
+>>> 'Roger Federer'.split()[-1]
+'Federer'
+>>> fn = ['Bill', 'Steve', 'Roger']
+>>> ln = ['Gates', 'Jobs', 'Federer']
+>>> 
+>>> 
+>>> sorted(zip(fn,ln), key=lambda x : x.split()[-1])
+Traceback (most recent call last):
+  File "<pyshell#107>", line 1, in <module>
+    sorted(zip(fn,ln), key=lambda x : x.split()[-1])
+  File "<pyshell#107>", line 1, in <lambda>
+    sorted(zip(fn,ln), key=lambda x : x.split()[-1])
+AttributeError: 'tuple' object has no attribute 'split'
+>>> sorted(zip(fn,ln), key=lambda x : x[-1])
+[('Roger', 'Federer'), ('Bill', 'Gates'), ('Steve', 'Jobs')]
+>>> 
