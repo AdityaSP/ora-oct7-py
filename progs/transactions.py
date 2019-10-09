@@ -1,8 +1,15 @@
 import bank
 
-ac1 = bank.Account('Aditya', 100, 'S')
-print(ac1.n, ac1.b, ac1.t)
-ac1.credit(100000)
-print(ac1.n, ac1.b, ac1.t)
-ac1.debit(100)
-print(ac1.n, ac1.b, ac1.t)
+
+sa = bank.SA('Aditya')
+print(sa.n, sa.b, sa.t)
+sa.credit(100)
+print(sa.n, sa.b, sa.t)
+sa.debit(2000)
+
+ca = bank.CA('ABC Inc')
+print(ca.n, ca.b, ca.t)
+ca.credit(100)
+print(ca.n, ca.b, ca.t)
+ca.debit(2000)
+print(ca.n, ca.b, ca.t)
