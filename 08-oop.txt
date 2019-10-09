@@ -165,3 +165,90 @@ Time to go off
 >>> cor.getEngine()
 1.1
 >>> 
+class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive", self.brand , self.name)
+	def deployairbag(self):
+		print("Time to go off")
+	def getEngine(self):
+		return 1.1
+	def enhance(self):
+		self.tyres = 'radial'
+
+		
+>>> cor = Car('Toyota', 'Corolla')
+>>> 
+>>> cor.brand, cor.name
+('Toyota', 'Corolla')
+>>> cor.enhance()
+>>> cor.tyres
+'radial'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class LB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> class HB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> # is-a relationship
+>>> # is LB a HB -> NO
+>>> # is HB a LB -> YES
+>>> 
+>>> 
+>>> class LB():
+	def breathe(self):
+		print("I breathe")
+
+		
+>>> class HB(LB):
+	pass
+
+>>> obj = HB()
+>>> obj.breathe()
+I breathe
+>>> 
+>>> 
+>>> class HB(LB):
+	def metathink(self):
+		print("I think therefore I am ")
+
+		
+>>> obj = HB()
+>>> obj.breathe()
+I breathe
+>>> obj.metathink()
+I think therefore I am 
+>>> 
+>>> 
+>>> class Fish(LB):
+	def breathe(self):
+		print("Through gills")
+
+		
+>>> obj = HB()
+>>> obj.breathe()
+I breathe
+>>> obj = Fish()
+>>> obj.breathe()
+Through gills
+>>> class Fish(LB):
+	def breathe(self):
+		LB.breathe(self)
+		print("Through gills")
+
+		
+>>> obj = Fish()
+>>> obj.breathe()
+I breathe
+Through gills
+>>> 
