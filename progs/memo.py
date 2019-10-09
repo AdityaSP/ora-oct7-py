@@ -23,6 +23,8 @@ def memo(f):
 def calculate(x):
     time.sleep(5)
     return x ** 4
+    
+   
 #d = {}   
 s = time.time() 
 print(calculate(4))  

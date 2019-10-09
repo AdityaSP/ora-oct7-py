@@ -1,0 +1,51 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import comp
+Traceback (most recent call last):
+  File "<pyshell#0>", line 1, in <module>
+    import comp
+ModuleNotFoundError: No module named 'comp'
+>>> import random
+>>> import sys
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages']
+>>> import os
+>>> os.getcwd()
+'D:\\sw\\python37'
+>>> mp = 'D:\training\python\oct7\progs'
+>>> print(mp)
+D:	raining\python\oct7\progs
+>>> mp = r'D:\training\python\oct7\progs'
+>>> print(mp)
+D:\training\python\oct7\progs
+>>> mp = 'D:/training/python/oct7/progs'
+>>> mp = 'D:\\training\\python\\oct7\\progs'
+>>> sys.path.append(mp)
+>>> sys.path
+['', 'D:\\sw\\python37\\Lib\\idlelib', 'D:\\training\\python\\sep9\\modules', 'D:\\sw\\python37\\python37.zip', 'D:\\sw\\python37\\DLLs', 'D:\\sw\\python37\\lib', 'D:\\sw\\python37', 'D:\\sw\\python37\\lib\\site-packages', 'D:\\training\\python\\oct7\\progs']
+>>> import comp
+>>> comp.add(4,5)
+9
+>>> import db.config
+>>> import network.config
+>>> db.config.configure()
+Dummy db config
+>>> network.config.configure()
+Dummy nw config
+>>> 
+>>> 
+>>> 
+>>> import db.config as dbc
+>>> import network.config as nc
+>>> dbc.configure()
+Dummy db config
+>>> nc.configure()
+Dummy nw config
+>>> from db.config import configure
+>>> configure()
+Dummy db config
+>>> from network.config import configure
+>>> configure()
+Dummy nw config
+>>> from db.config import *
+>>> 

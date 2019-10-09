@@ -15,3 +15,5 @@ output = subprocess.check_output('tasklist', shell=True).decode().split("\r\n")[
 output.sort(key= lambda line: int(line.split()[-2].replace(',','')), reverse=True)
 for item in output[:5]:
     print(item)
+    
+    
