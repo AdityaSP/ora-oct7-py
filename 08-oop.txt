@@ -1,0 +1,167 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> a = 10
+>>> type(a)
+<class 'int'>
+>>> b = 20
+>>> a + b
+30
+>>> " hello" + "world"
+' helloworld'
+>>> 
+>>> class Car():
+	pass
+
+>>> a = int()
+>>> a
+0
+>>> city = Car()
+>>> type(city)
+<class '__main__.Car'>
+>>> s = "hello"
+>>> dir(s)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> l = [1,2,3]
+>>> dir(l)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> city.brand = 'Honda'
+>>> city.name = 'City'
+>>> fir(city)
+Traceback (most recent call last):
+  File "<pyshell#20>", line 1, in <module>
+    fir(city)
+NameError: name 'fir' is not defined
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> city.brand
+'Honda'
+>>> city.name
+'City'
+>>> cor = Car()
+>>> dir(cor)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+>>> cor.brand = 'Toyota'
+>>> cor.name = 'Corolla'
+>>> city.brand, city.name
+('Honda', 'City')
+>>> cor.brand, cor.name
+('Toyota', 'Corolla')
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Car():
+	def __init__(self):
+		print("In here")
+
+		
+>>> city = Car()
+In here
+>>> class Car():
+	def __init__(self):
+		print("In here")
+		print(id(self))
+
+		
+>>> city = Car()
+In here
+2004054651208
+>>> id(city)
+2004054651208
+>>> class Car():
+	def __init__(self):
+		print("In here")
+		print(id(self))
+		self.brand = 'Honda'
+		self.name = 'City'
+
+		
+>>> city = Car()
+In here
+2004054746696
+>>> id(city)
+2004054746696
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> city.brand
+'Honda'
+>>> city.name
+'City'
+>>> cor = Car()
+In here
+2004054653704
+>>> cor.brand, cor.name
+('Honda', 'City')
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+
+		
+>>> city = Car()
+Traceback (most recent call last):
+  File "<pyshell#59>", line 1, in <module>
+    city = Car()
+TypeError: __init__() missing 2 required positional arguments: 'b' and 'n'
+>>> city = Car('Honda', 'City')
+>>> city.brand, city.name
+('Honda', 'City')
+>>> cor = Car('Toyota', 'Corolla')
+>>> cor.brand, cor.name
+('Toyota', 'Corolla')
+>>> city.color ='silver grey'
+>>> dir(city)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'color', 'name']
+>>> dir(cor)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'brand', 'name']
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive", self.brand , self.name)
+
+		
+>>> cor = Car('Toyota', 'Corolla')
+>>> cor.brand, cor.name
+('Toyota', 'Corolla')
+>>> cor.drive()
+I drive Toyota Corolla
+>>> city = Car("Honda", "City")
+>>> city.drive()
+I drive Honda City
+>>> li = [1,2,3]
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive", self.brand , self.name)
+	def deployairbag(self):
+		print("Time to go off")
+
+		
+>>> cor = Car('Toyota', 'Corolla')
+>>> cor.drive()
+I drive Toyota Corolla
+>>> cor.deployairbag()
+Time to go off
+>>> class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive", self.brand , self.name)
+	def deployairbag(self):
+		print("Time to go off")
+	def getEngine(self):
+		return 1.1
+
+	
+>>> cor = Car('Toyota', 'Corolla')
+>>> cor.getEngine()
+1.1
+>>> 
