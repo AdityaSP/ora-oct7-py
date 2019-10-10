@@ -1,5 +1,6 @@
 import unittest
 import bank
+import sys
 
 class TestBank(unittest.TestCase):
     def test_sacreate(self):
@@ -20,4 +21,27 @@ class TestBank(unittest.TestCase):
     
     
 # Auto discovery of test cases
-unittest.main(verbosity=3)   
+#unittest.main(verbosity=3)
+
+ts = unittest.TestSuite()
+
+if (sys.argv[1] == 'SA'):
+    ts.addTest(TestBank('test_sacreate'))
+    ts.addTest(TestBank('test_sacredit'))
+elif (sys.argv[1] == 'CA'):
+    ts.addTest(TestBank('test_cacreate'))
+    ts.addTest(TestBank('test_cacredit'))
+    
+r = unittest.TextTestRunner(verbosity = 3)
+r.run(ts)
+
+
+
+
+
+
+
+
+
+
+
