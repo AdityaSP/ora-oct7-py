@@ -501,4 +501,141 @@ ValueError: Cannot directly set area
 >>> sq.l = 12
 >>> sq.area
 144
+>>> id(sq)
+2004054908168
+>>> sq.l = 15
+>>> sq.area
+225
+>>> id(sq)
+2004054908168
+>>> class Square():
+	def __init__(self, l):
+		self.__l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+	def get_l(self):
+		return self.__l
+	def set_l(self, l):
+		self.__l = l
+		self.__area = l * l
+	def __some(self):
+		print("In here")
+	area = property(fget=get_area, fset=set_area)
+	l = property(fget=get_l, fset=set_l)
+
+	
+>>> sq = Square(5)
+>>> sq.__some()
+Traceback (most recent call last):
+  File "<pyshell#249>", line 1, in <module>
+    sq.__some()
+AttributeError: 'Square' object has no attribute '__some'
+>>> class Square():
+	def __init__(self, l):
+		self.__l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+	def get_l(self):
+		return self.__l
+	def set_l(self, l):
+		self.__l = l
+		self.__area = l * l
+	def __some__(self):
+		print("In here")
+	area = property(fget=get_area, fset=set_area)
+	l = property(fget=get_l, fset=set_l)
+
+	
+>>> sq = Square(5)
+>>> sq.__some__()
+In here
+>>> 
+>>> 
+>>> 
+>>> sq.__l
+Traceback (most recent call last):
+  File "<pyshell#257>", line 1, in <module>
+    sq.__l
+AttributeError: 'Square' object has no attribute '__l'
+>>> sq.__area
+Traceback (most recent call last):
+  File "<pyshell#258>", line 1, in <module>
+    sq.__area
+AttributeError: 'Square' object has no attribute '__area'
+>>> dir(sq)
+['_Square__area', '_Square__l', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__some__', '__str__', '__subclasshook__', '__weakref__', 'area', 'get_area', 'get_l', 'l', 'set_area', 'set_l']
+>>> sq._Square__area
+25
+>>> sq._Square__l
+5
+>>> sq._Square__l = 20
+>>> sq._Square__area = 500
+>>> sq.area
+500
+>>> sq.l
+20
+>>> # Name mangling --> __area became _Square__area and similarly __l became _Square__l
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Student():
+	def __init__(self, n, i):
+		self.n = n
+		self.i = i
+
+		
+>>> s1 = Student('John Doe', 1)
+>>> s2 = Student('John Doe', 1)
+>>> s1 == s2
+False
+>>> a = 1000
+>>> b = 1000
+>>> a == b
+True
+>>> s3 = s1
+>>> s1 == s3
+True
+>>> s1 == s2, s1 == s3, s2 == s3
+(False, True, False)
+>>> id(s1), id(s2)
+(2004054956104, 2004054955656)
+>>> id(s1), id(s3)
+(2004054956104, 2004054956104)
+>>> id(a), id(b)
+(2004055086224, 2004055086096)
+>>> dir(int)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+>>> class Student():
+	def __init__(self, n, i):
+		self.n = n
+		self.i = i
+	def __eq__(self, other):
+		self.n == other.n and self.i == other.i
+
+		
+>>> class Student():
+	def __init__(self, n, i):
+		self.n = n
+		self.i = i
+	def __eq__(self, other):
+		return self.n == other.n and self.i == other.i
+
+	
+>>> s1 = Student('JD', 1)
+>>> s2 = Student('JD', 1)
+>>> id(s1), id(s2)
+(2004054719048, 2004054943688)
+>>> s1 == s2
+True
+>>> Student.__eq__(s1, s2)
+True
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 >>> 
