@@ -252,3 +252,253 @@ Through gills
 I breathe
 Through gills
 >>> 
+class Car():
+	def __init__(self, b, n):
+		self.brand = b
+		self.name = n
+	def drive(self):
+		print("I drive", self.brand , self.name)
+	def deployairbag(self):
+		print("Time to go off")
+	def getEngine(self):
+		return 1.1
+	def enhance(self):
+		self.tyres = 'radial'
+
+		
+>>> cor = Car('Toyota', 'Corolla')
+>>> cor.drive()
+I drive Toyota Corolla
+>>> Car.drive(cor)
+I drive Toyota Corolla
+>>> li
+[1, 2, 3]
+>>> li[6]
+Traceback (most recent call last):
+  File "<pyshell#153>", line 1, in <module>
+    li[6]
+IndexError: list index out of range
+>>> 
+>>> hb = HB()
+>>> f = Fish()
+>>> isinstance(hb, Fish)
+False
+>>> isinstance(hb, HB)
+True
+>>> isinstance(hb, LB)
+True
+>>> err = IndexError()
+>>> isinstance(err, IndexError)
+True
+>>> err = ValueError()
+>>> isinstance(err, IndexError)
+False
+>>> isinstance(err, ZeroDivisionError)
+False
+>>> isinstance(err, Exception)
+True
+>>> issubclass(Exception, IndexError)
+False
+>>> issubclass(IndexError, Exception)
+True
+>>> issubclass(ValueError, Exception)
+True
+>>> li[10]
+Traceback (most recent call last):
+  File "<pyshell#169>", line 1, in <module>
+    li[10]
+IndexError: list index out of range
+>>> err = ValueError()
+>>> raise err
+Traceback (most recent call last):
+  File "<pyshell#171>", line 1, in <module>
+    raise err
+ValueError
+>>> err = ValueError("Insufficient funds")
+>>> raise err
+Traceback (most recent call last):
+  File "<pyshell#173>", line 1, in <module>
+    raise err
+ValueError: Insufficient funds
+>>> raise ValueError("Insufficient funds")
+Traceback (most recent call last):
+  File "<pyshell#174>", line 1, in <module>
+    raise ValueError("Insufficient funds")
+ValueError: Insufficient funds
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> class Square():
+	def __init__(self, l)
+	
+SyntaxError: invalid syntax
+>>> class Square():
+	def __init__(self, l):
+		self.l = l
+		self.area = l * l
+
+		
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.area
+25
+>>> sq.area = 400
+>>> sq.l
+5
+>>> sq.area
+400
+>>> class Square():
+	def __init__(self, l):
+		self.l = l
+		self.__area = l * l
+
+		
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.area
+Traceback (most recent call last):
+  File "<pyshell#199>", line 1, in <module>
+    sq.area
+AttributeError: 'Square' object has no attribute 'area'
+>>> sq.__area
+Traceback (most recent call last):
+  File "<pyshell#200>", line 1, in <module>
+    sq.__area
+AttributeError: 'Square' object has no attribute '__area'
+>>> # __area is hidden from outside of the class
+>>> 
+>>> class Square():
+	def __init__(self, l):
+		self.l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+
+	
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.get_area()
+25
+>>> sq.__area
+Traceback (most recent call last):
+  File "<pyshell#210>", line 1, in <module>
+    sq.__area
+AttributeError: 'Square' object has no attribute '__area'
+>>> class Square():
+	def __init__(self, l):
+		self.l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+
+	
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.get_area()
+25
+>>> sq.set_area(400)
+Traceback (most recent call last):
+  File "<pyshell#218>", line 1, in <module>
+    sq.set_area(400)
+  File "<pyshell#214>", line 8, in set_area
+    raise ValueError("Cannot directly set area")
+ValueError: Cannot directly set area
+>>> class Square():
+	def __init__(self, l):
+		self.l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+	area = property(fget=get_area, fset=set_area)
+
+	
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.__area
+Traceback (most recent call last):
+  File "<pyshell#224>", line 1, in <module>
+    sq.__area
+AttributeError: 'Square' object has no attribute '__area'
+>>> sq.area
+25
+>>> sq.area = 500
+Traceback (most recent call last):
+  File "<pyshell#226>", line 1, in <module>
+    sq.area = 500
+  File "<pyshell#221>", line 8, in set_area
+    raise ValueError("Cannot directly set area")
+ValueError: Cannot directly set area
+>>> sq.l = 10
+>>> sq.area
+25
+>>> class Square():
+	def __init__(self, l):
+		self.__l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+	def get_l(self):
+		return self.__l
+	def set_l(self, l):
+		self.__l = l
+		self.__area = l * l
+	area = property(fget=get_area, fset=set_area)
+	l = propert(fget=get_l, fset=set_l)
+
+	
+Traceback (most recent call last):
+  File "<pyshell#231>", line 1, in <module>
+    class Square():
+  File "<pyshell#231>", line 15, in Square
+    l = propert(fget=get_l, fset=set_l)
+NameError: name 'propert' is not defined
+>>> class Square():
+	def __init__(self, l):
+		self.__l = l
+		self.__area = l * l
+	def get_area(self):
+		return self.__area
+	def set_area(self,a):
+		raise ValueError("Cannot directly set area")
+	def get_l(self):
+		return self.__l
+	def set_l(self, l):
+		self.__l = l
+		self.__area = l * l
+	area = property(fget=get_area, fset=set_area)
+	l = property(fget=get_l, fset=set_l)
+
+	
+>>> sq = Square(5)
+>>> sq.l
+5
+>>> sq.area
+25
+>>> sq.area = 400
+Traceback (most recent call last):
+  File "<pyshell#237>", line 1, in <module>
+    sq.area = 400
+  File "<pyshell#233>", line 8, in set_area
+    raise ValueError("Cannot directly set area")
+ValueError: Cannot directly set area
+>>> sq.l = 10
+>>> sq.area
+100
+>>> sq.l = 12
+>>> sq.area
+144
+>>> 
