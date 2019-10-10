@@ -1,0 +1,7 @@
+module,testcase,test,run
+testbank,TestBank,test_sacreate,y
+testbank,TestBank,test_cacreate,y
+testbank,TestBank,test_sacredit,y
+testbank,TestBank,test_cacredit,y
+testmath,TestMath,test_add,y
+testmath,TestMath,test_sub,y
