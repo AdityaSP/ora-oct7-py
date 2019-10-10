@@ -1,0 +1,86 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+>>> a = 10 +20
+>>> if a == 30:
+	print("Pass")
+else:
+	print("fail")
+
+	
+Pass
+>>> assert a ==30
+>>> assert a == 20
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    assert a == 20
+AssertionError
+>>> assert a == 20, "Check your math"
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    assert a == 20, "Check your math"
+AssertionError: Check your math
+>>> 
+
+>>> fp = r'D:\training\python\oct7\trial.txt'
+>>> 
+>>> fh = open(fp, 'wt')
+>>> fh.write("Line1")
+5
+>>> fh.close()
+>>> fh.write("Line1")
+Traceback (most recent call last):
+  File "<pyshell#16>", line 1, in <module>
+    fh.write("Line1")
+ValueError: I/O operation on closed file.
+>>> fh = open(fp, 'wt')
+>>> fh.write("Next line")
+9
+>>> fh.close()
+>>> # write mode -> will create the file if doesnt exist and it will overwrite the file if it exists
+>>> fh = open(fp, 'at')
+>>> fh.write("Hope lives on to let you hope")
+29
+>>> fh.close()
+>>> 
+>>> 
+>>> 
+>>> fh= open(fp, 'rt')
+>>> # read the whole file as a string
+>>> s = fh.read()
+>>> print(s)
+line 1
+line 2
+line 3
+>>> s = fh.read()
+>>> print(s)
+
+>>> fh.seek(0)
+0
+>>> # move the cursor/fh to 0 bytes from the beginning of the file
+>>> s = fh.read()
+>>> s
+'line 1\nline 2\nline 3'
+>>> fh.seek(0)
+0
+>>> lines= fh.readlines()
+>>> lines
+['line 1\n', 'line 2\n', 'line 3']
+>>> fh.seek(0)
+0
+>>> for line in fh:
+	print(line)
+
+	
+line 1
+
+line 2
+
+line 3
+>>> fh.close()
+>>> 
+>>> fh = open(fp, 'ta')
+>>> fh.write('new line')
+8
+>>> fh.close()
+>>> 
