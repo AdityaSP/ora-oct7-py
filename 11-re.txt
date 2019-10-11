@@ -1,0 +1,178 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> import re
+>>> t = 'Good Morning'
+>>> p = 'Good'
+>>> re.search(p, t)
+<re.Match object; span=(0, 4), match='Good'>
+>>> m = re.search(p,t)
+>>> m.start(), m.end()
+(0, 4)
+>>> t[m.start(): m.end()]
+'Good'
+>>> t = 'Good Morning Good'
+>>> p = 'Good'
+>>> m = re.search(p,t)
+>>> m.start(), m.end()
+(0, 4)
+>>> re.findall(p,t)
+['Good', 'Good']
+>>> for m in re.finditer(p,t):
+	print("Found at" , m.start(), m.end())
+
+	
+Found at 0 4
+Found at 13 17
+>>> 
+>>> 
+>>> 
+>>> t = 'sasasas'
+>>> p = 'sas'
+>>> for m in re.finditer(p,t):
+	print("Found at" , m.start(), m.end())
+
+	
+Found at 0 3
+Found at 4 7
+>>> # Re works char by char
+>>> # no overlapping patterns
+>>> 
+>>> # Repetition
+>>> 
+>>> 
+>>> t = 'xyxyyyyxyyxyyyyy'
+>>> p = 'xy*'
+>>> # xy * --> x followed by 0 to n number of ys
+>>> # x, xy, xyy, xyyy ...
+>>> re.findall(p,t)
+['xy', 'xyyyy', 'xyy', 'xyyyyy']
+>>> t = 'xxyxyyyyxyyxyyyyy'
+>>> re.findall(p,t)
+['x', 'xy', 'xyyyy', 'xyy', 'xyyyyy']
+>>> t = 'xxyxyyyyxyyxyyyyy'
+>>> p = 'xy+'
+>>> # xy+ --> x followed by 1 to n number of ys
+>>> # xy, xyy, xyyy ...
+>>> re.findall(p,t)
+['xy', 'xyyyy', 'xyy', 'xyyyyy']
+>>> t = 'xxyxyyyyxyyxyyyyy'
+>>> p = 'xy?'
+>>> #xy --> x followed by 0 or 1 y
+>>> #x, xy
+>>> re.findall(p,t)
+['x', 'xy', 'xy', 'xy', 'xy']
+>>> t = 'xxyxyyyyxyyxyyyyy'
+>>> p = 'xy{3}'
+>>> re.findall(p,t)
+['xyyy', 'xyyy']
+>>> p = 'xy{0,3}'
+>>> re.findall(p,t)
+['x', 'xy', 'xyyy', 'xyy', 'xyyy']
+>>> 
+>>> 
+>>> t = 'aditya meets Aditya'
+>>> p = 'aditya'
+>>> re.findall(p,t)
+['aditya']
+>>> p = '[aA]ditya'
+>>> re.findall(p,t)
+['aditya', 'Aditya']
+>>> t = 'aditya meets Aditya Editya'
+>>> p = '[EaA]ditya'
+>>> re.findall(p,t)
+['aditya', 'Aditya', 'Editya']
+>>> #[] --> character set
+>>> t = 'USD 100'
+>>> p = '[1234567890]+'
+>>> re.findall(p,t)
+['100']
+>>> t = 'USD 98738754'
+>>> re.findall(p,t)
+['98738754']
+>>> p = '[A-Z]+'
+>>> re.findall(p,t)
+['USD']
+>>> t = 'INR 100'
+>>> re.findall(p,t)
+['INR']
+>>> t = 'inr 100'
+>>> re.findall(p,t)
+[]
+>>> p = '[A-Za-z]+'
+>>> re.findall(p,t)
+['inr']
+>>> t = 'INR 100'
+>>> re.findall(p,t)
+['INR']
+>>> t = 'Inr 100'
+>>> re.findall(p,t)
+['Inr']
+>>> p = '[0-9]+'
+>>> re.findall(p,t)
+['100']
+>>> t = 'Date: 10-05-2019'
+>>> p = '[0-9]{2}-[0-9]{2}-[0-9]{4}'
+>>> re.findall(p,t)
+['10-05-2019']
+>>> # extraction of data, validation of data
+>>> p = r'\d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['10-05-2019']
+>>> # match the date, also want to extract month, day and year
+>>> p = r'(\d{2})-(\d{2})-(\d{4})'
+>>> re.findall(p,t)
+[('10', '05', '2019')]
+>>> # group capture and extraction
+>>> m = re.search(p,t)
+>>> m.group()
+'10-05-2019'
+>>> m.group(0)
+'10-05-2019'
+>>> m.group(1)
+'10'
+>>> m.group(2)
+'05'
+>>> m.group(3)
+'2019'
+>>> t = 'mfg dt : 10-05-2019 exp dt: 10-05-2020'
+>>> p = r'\d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['10-05-2019', '10-05-2020']
+>>> p = r'exp dt: \d{2}-\d{2}-\d{4}'
+>>> re.findall(p,t)
+['exp dt: 10-05-2020']
+>>> p = r'exp dt: (\d{2}-\d{2}-\d{4})'
+>>> re.findall(p,t)
+['10-05-2020']
+>>> 
+>>> 
+>>> 
+>>> t = 'http://google.com'
+>>> p = 'http'
+>>> re.findall(p,t)
+['http']
+>>> t = '://gohttpogle.com'
+>>> re.findall(p,t)
+['http']
+>>> p = '^http'
+>>> re.findall(p,t)
+[]
+>>> p = 'com$'
+>>> re.findall(p,t)
+['com']
+>>> # ^ and $ are called as anchor tags
+>>> t = 'http://www.google.com'
+>>> t = 'www.google.com'
+>>> p = 'http|www'
+>>> re.findall(p,t)
+['www']
+>>> t = 'http://www.google.com'
+>>> re.findall(p,t)
+['http', 'www']
+>>> p = '^(http|www)'
+>>> re.findall(p,t)
+['http']
+>>> t = 'www.google.com'
+>>> re.findall(p,t)
+['www']
+>>> 
