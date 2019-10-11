@@ -49,3 +49,7 @@ Dummy db config
 Dummy nw config
 >>> from db.config import *
 >>> 
+>>> 
+>>> import unittest
+>>> ts = unittest.TestSuite()
+>>> unittest.T
