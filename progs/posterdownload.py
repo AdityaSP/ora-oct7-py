@@ -4,8 +4,16 @@
 import requests
 import json
 from threading import Thread
+import os
 
 ui= input("Movie search string: ")
+
+if ( os.path.exists(ui)):
+    print(ui, "exists.")
+    exit(1)
+else:
+    os.mkdir(ui)
+
 url = r'http://www.omdbapi.com/?s='+ ui + r'&apikey=b4e17ea0'
 r = requests.get(url)
 
@@ -22,5 +30,5 @@ if r.ok:
         print("Downloading for", movie['Title'])
         if movie['Poster'] != 'N/A':
             #download(movie['Poster'] , movie['imdbID'] + '.jpg')
-            Thread(target=download, args=[movie['Poster'] , movie['imdbID'] + '.jpg']).start()
+            Thread(target=download, args=[movie['Poster'] , ui+os.path.sep+movie['imdbID'] + '.jpg']).start()
             
