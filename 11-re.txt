@@ -176,3 +176,40 @@ Found at 4 7
 >>> re.findall(p,t)
 ['www']
 >>> 
+>>> 
+>>> t = 'man eats mango'
+>>> p = 'man|mango'
+>>> re.findall(p,t)
+['man', 'man']
+>>> p = 'mango|man'
+>>> re.findall(p,t)
+['man', 'mango']
+>>> 
+>>> 
+>>> p = 'man(go)?'
+>>> for m in re.finditer(p,t):
+	print(m.group())
+
+	
+man
+mango
+>>> 
+>>> 
+>>> t = 'the class strength is 30. Only 5 present'
+>>> p = r'.+\d+\.'
+>>> p = r'.+(\d+)\.'
+>>> re.findall(p,t)
+['0']
+>>> m = re.search(p,t)
+>>> m.group()
+'the class strength is 30.'
+>>> m.group(1)
+'0'
+>>> t = 'the class strength is 599. Only 5 present'
+>>> re.findall(p,t)
+['9']
+>>> t = 'the class strength is 30. Only 5 present'
+>>> p = r'.+?(\d+)\.'
+>>> re.findall(p,t)
+['30']
+>>> 
